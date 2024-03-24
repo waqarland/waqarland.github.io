@@ -1,0 +1,12 @@
+Joss 1.0.4
+New added: Minimalist Dark Menu Reveal (index-dark-minimalist-menu-reveal.html)
+
+Joss 1.0.3
+New added: Creative 2 Light Menu Reveal (index-light-creative-2-menu-reveal.html)
+
+Joss 1.0.2
+New added: Creative 2 Dark Menu Reveal (index-dark-creative-2-menu-reveal.html)
+
+Joss 1.0.1
+New added: Creative Dark Menu Reveal (index-dark-creative-menu-reveal.html)
+New added: Creative Dark Menu Bar (index-dark-creative-menu-bar.html)
