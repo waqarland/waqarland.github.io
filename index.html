@@ -1179,6 +1179,28 @@
         });
     </script>
     -->
+
+    <!-- Mobile Menu Toggle Bridge -->
+    <script>
+        $(document).ready(function () {
+            // Toggle menu and background blur
+            $('#menu-btn').on('click', function () {
+                $('body').toggleClass('mobile-menu-active');
+            });
+            // Close menu when a link is clicked
+            $('#mainmenu li a').on('click', function () {
+                $('body').removeClass('mobile-menu-active');
+            });
+            // Close menu when clicking backdrop
+            $(document).on('click', function (e) {
+                if ($('body').hasClass('mobile-menu-active') &&
+                    !$(e.target).closest('#mainmenu').length &&
+                    !$(e.target).closest('#menu-btn').length) {
+                    $('body').removeClass('mobile-menu-active');
+                }
+            });
+        });
+    </script>
     <!-- Hire Me Modal -->
     <div class="modal fade" id="hireMeModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

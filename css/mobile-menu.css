@@ -1,109 +1,120 @@
 /* =========================================
-   MOBILE MENU PROFESSIONAL STYLING
-   Full-screen overlay with blur background
+   MOBILE MENU PROFESSIONAL REDESIGN
+   Centered Glass Card with Full Background Blur
    ========================================= */
 
-/* Mobile menu full-screen overlay */
 @media (max-width: 991px) {
 
-    /* Full-screen centered menu */
-    #mainmenu {
-        position: fixed !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        width: 90% !important;
-        max-width: 400px !important;
-        background: rgba(10, 10, 20, 0.95) !important;
-        backdrop-filter: blur(20px) !important;
-        -webkit-backdrop-filter: blur(20px) !important;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        border-radius: 24px !important;
-        padding: 30px 0 !important;
-        margin: 0 !important;
-        z-index: 9999 !important;
+    /* 1. Header height fix - prevent the theme from pushing content down */
+    header.header-mobile {
+        height: 70px !important;
+        overflow: visible !important;
     }
 
-    /* Remove top spacing - menu items start immediately */
-    #mainmenu li:first-child {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-    }
-
-    /* Menu items styling */
-    #mainmenu li {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-        margin: 0 !important;
-    }
-
-    #mainmenu li:last-child {
-        border-bottom: none !important;
-    }
-
-    #mainmenu a {
-        color: rgba(255, 255, 255, 0.9) !important;
-        font-size: 20px !important;
-        font-weight: 600 !important;
-        padding: 20px 30px !important;
-        transition: all 0.3s ease !important;
-        letter-spacing: 0.5px !important;
-        display: block !important;
-        text-align: center !important;
-    }
-
-    #mainmenu a:hover,
-    #mainmenu a.active {
-        background: rgba(32, 201, 151, 0.15) !important;
-        color: var(--primary-color) !important;
-        transform: scale(1.02) !important;
-    }
-
-    /* Hire Me button in mobile menu */
-    #mainmenu .btn-pill-glass {
-        margin: 20px 30px 10px 30px !important;
-        width: calc(100% - 60px) !important;
-        justify-content: center !important;
-        background: rgba(32, 201, 151, 0.2) !important;
-        border: 2px solid var(--primary-color) !important;
-        color: var(--primary-color) !important;
-        font-weight: 700 !important;
-        font-size: 18px !important;
-        padding: 16px 30px !important;
-    }
-
-    #mainmenu .btn-pill-glass:hover {
-        background: var(--primary-color) !important;
-        color: #000 !important;
-        transform: translateY(-2px) scale(1.02) !important;
-        box-shadow: 0 10px 25px rgba(32, 201, 151, 0.4) !important;
-    }
-
-    /* Blurred background overlay when menu is open */
-    body.menu-open::before {
-        content: '';
+    /* 2. Full-screen blur overlay */
+    body.mobile-menu-active::after {
+        content: "";
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        z-index: 9998;
-        opacity: 1;
-        transition: opacity 0.3s ease;
+        background: rgba(0, 0, 0, 0.5);
+        /* Slightly darker */
+        backdrop-filter: blur(12px);
+        /* Deeper blur as requested */
+        -webkit-backdrop-filter: blur(12px);
+        z-index: 998;
+        animation: fadeIn 0.4s ease;
     }
 
-    /* Smooth menu transitions */
+    /* 3. Centered Glass Menu */
     #mainmenu {
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        opacity: 1 !important;
-    }
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -45%) scale(0.95) !important;
+        width: 92% !important;
+        max-width: 380px !important;
+        height: auto !important;
+        background: rgba(10, 10, 10, 0.4) !important;
+        /* Matches Experience card translucency */
+        backdrop-filter: blur(25px) !important;
+        /* Premium glass effect */
+        -webkit-backdrop-filter: blur(25px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-radius: 24px !important;
+        /* More modern rounding */
+        padding: 50px 20px !important;
+        margin: 0 !important;
+        z-index: 9999 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5) !important;
 
-    /* Hide menu when closed */
-    #mainmenu:not(.show) {
+        /* Interactive visibility */
         opacity: 0 !important;
         pointer-events: none !important;
+        visibility: hidden !important;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    }
+
+    /* Show state */
+    body.mobile-menu-active #mainmenu {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        visibility: visible !important;
+        transform: translate(-50%, -50%) scale(1) !important;
+    }
+
+    /* Menu items */
+    #mainmenu li {
+        width: 100% !important;
+        text-align: center !important;
+        margin: 8px 0 !important;
+        border: none !important;
+        float: none !important;
+    }
+
+    #mainmenu li a {
+        display: inline-block !important;
+        padding: 10px 30px !important;
+        font-size: 1.35rem !important;
+        font-weight: 800 !important;
+        /* Bolder as per experience theme */
+        color: #fff !important;
+        background: transparent !important;
+        border-radius: 50px !important;
+        transition: all 0.3s ease !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    /* Hover effect matching experience badges */
+    #mainmenu li a:hover,
+    #mainmenu li a.active {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: var(--primary-color) !important;
+        transform: scale(1.1) !important;
+    }
+
+    /* Hire Me button in mobile menu */
+    #mainmenu .btn-pill-glass {
+        margin-top: 30px !important;
+        width: 85% !important;
+        font-size: 1rem !important;
+        background: rgba(32, 201, 151, 0.1) !important;
+        border: 1px solid var(--primary-color) !important;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
 }
