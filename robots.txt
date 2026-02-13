@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Block access to private directories
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /.gemini/
+
+# Sitemap location
+Sitemap: https://waqarland.github.io/sitemap.xml
+
+# Crawl delay (be nice to servers)
+Crawl-delay: 1

@@ -1,0 +1,241 @@
+/* ============================================
+   RESPONSIVE DESIGN
+   Mobile-first approach with breakpoints:
+   - xs: 0-575px (mobile portrait)
+   - sm: 576-767px (mobile landscape)
+   - md: 768-991px (tablet)
+   - lg: 992-1199px (desktop)
+   - xl: 1200px+ (large desktop)
+   ============================================ */
+
+/* Mobile First - Base styles (320px+) */
+/* These are already set in the main style.css */
+
+/* Extra Small Devices (Portrait Phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+    /* Hero Section */
+    #section-hero h1 {
+        font-size: 48px !important;
+        line-height: 1.2 !important;
+    }
+
+    #section-hero .subtitle {
+        font-size: 16px !important;
+    }
+
+    /* Reduce profile image size on mobile */
+    #section-about .profile-image img {
+        max-width: 200px !important;
+        height: auto !important;
+    }
+
+    /* Typography adjustments */
+    h2 {
+        font-size: 32px !important;
+    }
+
+    h3 {
+        font-size: 24px !important;
+    }
+
+    h5 {
+        font-size: 16px !important;
+    }
+
+    /* Sections padding */
+    section {
+        padding: 60px 0 !important;
+    }
+
+    /* Glass cards spacing */
+    .glass-card {
+        margin-bottom: 20px !important;
+    }
+
+    /* Skills section - single column */
+    #section-skills .row>div {
+        margin-bottom: 30px;
+    }
+
+    /* Buttons */
+    .btn-main,
+    .btn {
+        padding: 12px 24px !important;
+        font-size: 14px !important;
+    }
+
+    /* Navigation */
+    #mainmenu {
+        font-size: 14px;
+    }
+
+    /* Project cards in carousel */
+    .bloglist .post-text h3 {
+        font-size: 20px !important;
+    }
+
+    .bloglist .post-text h5 {
+        font-size: 14px !important;
+    }
+
+    /* Container padding */
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Resume section timeline */
+    .exp-box {
+        padding: 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Reduce vertical spacing between timeline items */
+    .de_timeline .d-date {
+        margin-bottom: 15px !important;
+    }
+}
+
+/* Small Devices (Landscape Phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    #section-hero h1 {
+        font-size: 56px !important;
+    }
+
+    h2 {
+        font-size: 36px !important;
+    }
+
+    section {
+        padding: 80px 0 !important;
+    }
+}
+
+/* Medium Devices (Tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #section-hero h1 {
+        font-size: 72px !important;
+    }
+
+    h2 {
+        font-size: 42px !important;
+    }
+
+    section {
+        padding: 100px 0 !important;
+    }
+
+    /* Two projects per row on tablet */
+    #carousel-blog-2-cols .owl-stage-outer {
+        overflow: visible;
+    }
+}
+
+/* Large Devices (Desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #section-hero h1 {
+        font-size: 96px !important;
+    }
+
+    section {
+        padding: 120px 0 !important;
+    }
+}
+
+/* Extra Large Devices (Large Desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+    /* Optimal spacing for large screens */
+    section {
+        padding: 140px 0 !important;
+    }
+
+    .container {
+        max-width: 1320px;
+    }
+}
+
+/* Ultra-wide Screens (1600px and up) */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1500px;
+    }
+
+    #section-hero h1 {
+        font-size: 120px !important;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    section {
+        padding: 40px 0 !important;
+    }
+
+    #section-hero h1 {
+        font-size: 48px !important;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+    /* Increase tap targets for touch devices */
+    .btn,
+    .btn-main {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    #mainmenu a {
+        padding: 12px 15px;
+    }
+
+    /* Disable hover effects on touch devices */
+    .glass-card:hover {
+        transform: none !important;
+    }
+}
+
+/* Print styles */
+@media print {
+
+    header,
+    footer,
+    #mainmenu {
+        display: none !important;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+
+    .jarallax {
+        background-attachment: scroll !important;
+    }
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .jarallax {
+        background-attachment: scroll !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .glass-card {
+        border: 2px solid var(--neon-green) !important;
+    }
+
+    .text-light {
+        color: #ffffff !important;
+    }
+}
