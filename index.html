@@ -1063,32 +1063,12 @@
         </footer>
         <!-- footer close -->
     </div>
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+
 
     <!-- Javascript Files
     ================================================== -->
     <script src="js/jquery.min.js"></script>
-    <script>
-        // Custom Cursor Logic
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
 
-        window.addEventListener('mousemove', function (e) {
-            const posX = e.clientX;
-            const posY = e.clientY;
-
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-
-            // Smooth follow for outline
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
-        });
-    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Skrollr for scroll-based parallax animations -->
@@ -1184,6 +1164,7 @@
     </script>
 
     <!-- Initialize Skrollr for Scroll Animations -->
+    <!-- DISABLED FOR PERFORMANCE
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Initialize Skrollr only on desktop (not mobile/tablet)
@@ -1196,6 +1177,7 @@
             }
         });
     </script>
+    -->
     <!-- Hire Me Modal -->
     <div class="modal fade" id="hireMeModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

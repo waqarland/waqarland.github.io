@@ -19529,35 +19529,6 @@ body::before {
     }
 }
 
-/* 4. Custom Follower Cursor */
-.cursor-dot,
-.cursor-outline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 9999;
-    pointer-events: none;
-}
-
-.cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--neon-green);
-}
-
-.cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
-}
-
-/* Hover effect for cursor */
-body:hover .cursor-outline {
-    opacity: 1;
-}
 
 /* Expand cursor on clickable elements */
 a:hover~.cursor-outline,
