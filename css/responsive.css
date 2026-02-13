@@ -95,6 +95,11 @@
     .de_timeline .d-date {
         margin-bottom: 15px !important;
     }
+
+    /* Hide logo on mobile to prevent overlap */
+    #logo {
+        display: none !important;
+    }
 }
 
 /* Small Devices (Landscape Phones, 576px and up) */
@@ -129,6 +134,11 @@
     /* Two projects per row on tablet */
     #carousel-blog-2-cols .owl-stage-outer {
         overflow: visible;
+    }
+
+    /* Hide logo on tablet to prevent overlap */
+    #logo {
+        display: none !important;
     }
 }
 
