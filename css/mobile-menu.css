@@ -5,13 +5,28 @@
 
 @media (max-width: 991px) {
 
-    /* 1. Header height fix - prevent the theme from pushing content down */
+    /* 1. Reset theme scroll-based green backgrounds */
+    header.header-mobile,
+    header.smaller,
+    header.header-mobile-sticky,
+    header.header-mobile.header-light,
+    header.header-mobile.header-dark {
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    /* Force legacy menu background to none to prevent green flash */
+    header.header-mobile #mainmenu {
+        background: none !important;
+    }
+
+    /* 2. Header height fix - prevent the theme from pushing content down */
     header.header-mobile {
         height: 70px !important;
         overflow: visible !important;
     }
 
-    /* 2. Full-screen blur overlay */
+    /* 3. Full-screen blur overlay */
     body.mobile-menu-active::after {
         content: "";
         position: fixed;
@@ -28,7 +43,7 @@
         animation: fadeIn 0.4s ease;
     }
 
-    /* 3. Centered Glass Menu */
+    /* 4. Centered Glass Menu */
     #mainmenu {
         position: fixed !important;
         top: 50% !important;
