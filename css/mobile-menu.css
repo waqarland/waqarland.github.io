@@ -6,12 +6,19 @@
 @media (max-width: 991px) {
 
     /* 1. Reset theme scroll-based green backgrounds */
+    header,
     header.header-mobile,
     header.smaller,
+    header.scroll-dark,
+    header.scroll-light,
     header.header-mobile-sticky,
     header.header-mobile.header-light,
-    header.header-mobile.header-dark {
+    header.header-mobile.header-dark,
+    header.autoshow,
+    header.autoshow.scrollOn,
+    header.autoshow.scrollOff {
         background: transparent !important;
+        background-color: transparent !important;
         box-shadow: none !important;
     }
 
