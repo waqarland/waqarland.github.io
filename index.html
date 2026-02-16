@@ -49,6 +49,9 @@
     <link rel="icon" href="images/gallery/Waqar_Front.png" type="image/png" sizes="16x16">
     <link rel="apple-touch-icon" href="images/gallery/Waqar_Front.png">
 
+    <!-- Preload Hero Image for LCP -->
+    <link rel="preload" as="image" href="images/background/landscape.jpg">
+
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -285,7 +288,8 @@
                             <figure class="cap-front overflow-hidden" data-bottom-top="transform: translateY(50px);"
                                 data-top-bottom="transform: translateY(-50px);">
                                 <img src="images/gallery/Front Facing Chair Portrait.png"
-                                    class="img-fluid wow custom-anim-right glass-border" alt="Waqar Profile Picture">
+                                    class="img-fluid wow custom-anim-right glass-border" alt="Waqar Profile Picture"
+                                    loading="lazy">
                                 <figcaption class="wow fadeInRight" data-wow-delay="1.2s">I can work from anywhere.
                                 </figcaption>
                             </figure>
@@ -324,7 +328,7 @@
                                         <div class="post-image">
                                             <img src="images/gallery/MercedesBenz.jpeg" class="img-fluid"
                                                 alt="Mercedes Benz Project"
-                                                style="width: 100%; height: 200px; object-fit: cover;">
+                                                style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
 
                                         </div>
                                         <div class="post-text">
@@ -339,7 +343,7 @@
                                         <div class="post-image">
                                             <img src="images/gallery/AllicaBank.jpeg" class="img-fluid"
                                                 alt="Allica Bank Project"
-                                                style="width: 100%; height: 200px; object-fit: cover;">
+                                                style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
 
                                         </div>
                                         <div class="post-text">
@@ -353,7 +357,7 @@
                                     <div class="post-content">
                                         <div class="post-image">
                                             <img src="images/gallery/RecX.jpeg" class="img-fluid" alt="ReCX.io Project"
-                                                style="width: 100%; height: 200px; object-fit: cover;">
+                                                style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
 
                                         </div>
                                         <div class="post-text">
@@ -368,7 +372,7 @@
                                         <div class="post-image">
                                             <img src="images/gallery/Smilelign.jpeg" class="img-fluid"
                                                 alt="Smilelign Project"
-                                                style="width: 100%; height: 200px; object-fit: cover;">
+                                                style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
 
                                         </div>
                                         <div class="post-text">
@@ -383,7 +387,7 @@
                                         <div class="post-image">
                                             <img src="images/gallery/AquaAligner.jpeg" class="img-fluid"
                                                 alt="Aqua Aligners Project"
-                                                style="width: 100%; height: 200px; object-fit: cover;">
+                                                style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
                                         </div>
                                         <div class="post-text">
                                             <h3>Aqua Aligners</h3>
@@ -396,7 +400,7 @@
                                         <div class="post-image">
                                             <img src="images/gallery/SmileGenius.jpeg" class="img-fluid"
                                                 alt="Smile Genius Dental Project"
-                                                style="width: 100%; height: 200px; object-fit: cover;">
+                                                style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
                                         </div>
                                         <div class="post-text">
                                             <h3>Smile Genius Dental</h3>
@@ -1068,27 +1072,28 @@
 
     <!-- Javascript Files
     ================================================== -->
-    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.min.js" defer></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Skrollr for scroll-based parallax animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/designesia.js"></script>
-    <script src="js/custom-marquee.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <script src="js/plugins.js" defer></script>
+    <script src="js/designesia.js" defer></script>
+    <script src="js/custom-marquee.js" defer></script>
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
     <script>
-        jQuery(function ($) {
-            $('.g-recaptcha').attr('data-theme', 'dark');
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.jQuery) {
+                jQuery('.g-recaptcha').attr('data-theme', 'dark');
+            }
         });
     </script>
     <script>
-        jQuery(document).ready(function () {
-            $(function () {
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.jQuery && jQuery.fn.typed) {
                 // jquery typed plugin
-                $(".typed").typed({
-                    stringsElement: $('.typed-strings'),
+                jQuery(".typed").typed({
+                    stringsElement: jQuery('.typed-strings'),
                     typeSpeed: 100,
                     backDelay: 500,
                     loop: true,
@@ -1098,7 +1103,7 @@
                     callback: function () { null; },
                     resetCallback: function () { newTyped(); }
                 });
-            });
+            }
         });
     </script>
 
