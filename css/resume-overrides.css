@@ -186,6 +186,29 @@
     }
 }
 
+/* =========================================
+   EXPERTISE SECTION SEPARATION
+   ========================================= */
+#section-expertise {
+    /* Gradient Background as requested */
+    background: linear-gradient(180deg, #0c0c0c 0%, #161616 50%, #0c0c0c 100%);
+    padding: 90px 0;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Subtle separator glow */
+#section-expertise::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0.2;
+}
+
 /* Fix for all section headings - remove unnecessary 60px left margin site-wide */
 section h1,
 section h2,
