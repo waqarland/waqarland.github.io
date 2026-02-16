@@ -355,3 +355,11 @@ section h4 {
 .btn-pill-glass i {
     margin-right: 8px;
 }
+
+/* Mobile Hero Text Size */
+@media (max-width: 768px) {
+    .h1_big {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+    }
+}
