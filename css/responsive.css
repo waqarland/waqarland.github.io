@@ -208,6 +208,71 @@
     }
 }
 
+/* ============================================
+   MOBILE SCROLL PERFORMANCE
+   Disable jarallax parallax & skrollr on mobile.
+   Use simple static backgrounds instead of
+   JS-repositioned elements for smooth scrolling.
+   ============================================ */
+@media (max-width: 991px) {
+
+    /* --- Jarallax fallback ---
+       jarallax-img elements are hidden (JS won't reposition them).
+       Sections get a static CSS background from their data-bgimage. */
+    .jarallax > .jarallax-img {
+        display: none !important;
+    }
+
+    /* Hero uses <img class="jarallax-img"> instead of data-bgimage,
+       so we need a specific rule for that section */
+    #section-hero.jarallax {
+        background: url('../images/background/landscape.jpg') center/cover no-repeat;
+    }
+
+    #section-about.jarallax {
+        background: url('../images/background/stars.jpg') center/cover no-repeat;
+    }
+
+    #section-blog.jarallax {
+        background: url('../images/background/north.jpg') center/cover no-repeat;
+    }
+
+    /* Sections using data-bgimage (set via JS) — ensure cover */
+    .jarallax[data-bgimage] {
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+    }
+
+    /* --- Disable skrollr scroll-driven transforms ---
+       Elements with data-bottom-top / data-top-bottom get
+       translateX/Y animations on scroll via skrollr. Kill them. */
+    [data-bottom-top],
+    [data-top-bottom] {
+        transform: none !important;
+        -webkit-transform: none !important;
+    }
+
+    /* --- GPU compositing for smooth native scroll --- */
+    section {
+        will-change: auto;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+
+    /* Reduce WOW.js animation complexity on mobile */
+    .wow {
+        animation-duration: 0.4s !important;
+    }
+
+    /* Disable the fade-top / fade-bottom pseudo-element
+       gradient overlays if they use heavy compositing */
+    .fade-top::before,
+    .fade-bottom::after {
+        opacity: 0.5;
+    }
+}
+
 /* Print styles */
 @media print {
 
