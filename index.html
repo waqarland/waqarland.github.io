@@ -1126,22 +1126,26 @@
 
     <!-- Mobile Menu Toggle Bridge -->
     <script>
-        $(document).ready(function () {
-            // Toggle menu and background blur
-            $('#menu-btn').on('click', function () {
-                $('body').toggleClass('mobile-menu-active');
-            });
-            // Close menu when a link is clicked
-            $('#mainmenu li a').on('click', function () {
-                $('body').removeClass('mobile-menu-active');
-            });
-            // Close menu when clicking backdrop
-            $(document).on('click', function (e) {
-                if ($('body').hasClass('mobile-menu-active') &&
-                    !$(e.target).closest('#mainmenu').length &&
-                    !$(e.target).closest('#menu-btn').length) {
+        document.addEventListener('DOMContentLoaded', function () {
+            $(window).on('load', function () {
+                // Toggle menu and background blur
+                $('#menu-btn').off('click').on('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    $('body').toggleClass('mobile-menu-active');
+                });
+                // Close menu when a link or button is clicked
+                $('#mainmenu li a, #mainmenu li button').on('click', function () {
                     $('body').removeClass('mobile-menu-active');
-                }
+                });
+                // Close menu when clicking backdrop
+                $(document).on('click', function (e) {
+                    if ($('body').hasClass('mobile-menu-active') &&
+                        !$(e.target).closest('#mainmenu').length &&
+                        !$(e.target).closest('#menu-btn').length) {
+                        $('body').removeClass('mobile-menu-active');
+                    }
+                });
             });
         });
     </script>
