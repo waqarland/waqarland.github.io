@@ -161,12 +161,15 @@
     margin-bottom: 8px !important;
 }
 
-/* Hover State - Make it Pop (Light Theme) */
+/* Hover State - Smooth lift effect */
 .glass-card:hover {
-    background: rgba(255, 255, 255, 0.25) !important;
-    border-color: rgba(255, 255, 255, 0.4) !important;
-    transform: translateY(-5px) scale(1.01) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-6px) !important;
+    box-shadow:
+        0 24px 48px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) !important;
 }
 
 /* Mobile Adjustments */
@@ -385,4 +388,151 @@ section h4 {
         font-size: 2rem !important;
         line-height: 1.2 !important;
     }
+}
+
+/* =========================================
+   SKILLS SECTION - PILL TAGS REDESIGN
+   ========================================= */
+
+/* Skills tag pills */
+ul.skills-tags {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+ul.skills-tags li {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    padding: 8px 22px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    white-space: nowrap;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer sweep effect on hover */
+ul.skills-tags li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+ul.skills-tags li:hover::before {
+    left: 100%;
+}
+
+ul.skills-tags li:hover {
+    background: rgba(32, 201, 151, 0.15);
+    color: #fff;
+    border-color: rgba(32, 201, 151, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(32, 201, 151, 0.2);
+}
+
+/* Skills section heading spacing */
+#section-skills h3 {
+    margin-bottom: 20px !important;
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    color: #fff !important;
+}
+
+/* Staggered fade-in animation */
+@keyframes skillFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+ul.skills-tags li {
+    animation: skillFadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+/* Stagger delays */
+ul.skills-tags li:nth-child(1)  { animation-delay: 0.03s; }
+ul.skills-tags li:nth-child(2)  { animation-delay: 0.06s; }
+ul.skills-tags li:nth-child(3)  { animation-delay: 0.09s; }
+ul.skills-tags li:nth-child(4)  { animation-delay: 0.12s; }
+ul.skills-tags li:nth-child(5)  { animation-delay: 0.15s; }
+ul.skills-tags li:nth-child(6)  { animation-delay: 0.18s; }
+ul.skills-tags li:nth-child(7)  { animation-delay: 0.21s; }
+ul.skills-tags li:nth-child(8)  { animation-delay: 0.24s; }
+ul.skills-tags li:nth-child(9)  { animation-delay: 0.27s; }
+ul.skills-tags li:nth-child(10) { animation-delay: 0.30s; }
+ul.skills-tags li:nth-child(11) { animation-delay: 0.33s; }
+ul.skills-tags li:nth-child(12) { animation-delay: 0.36s; }
+ul.skills-tags li:nth-child(13) { animation-delay: 0.39s; }
+ul.skills-tags li:nth-child(14) { animation-delay: 0.42s; }
+ul.skills-tags li:nth-child(15) { animation-delay: 0.45s; }
+ul.skills-tags li:nth-child(n+16) { animation-delay: 0.48s; }
+
+/* Mobile: skills tag responsive */
+@media (max-width: 768px) {
+    ul.skills-tags {
+        gap: 8px;
+    }
+    ul.skills-tags li {
+        font-size: 0.82rem;
+        padding: 6px 16px;
+    }
+}
+
+/* =========================================
+   HIRE ME BUTTON - SUBTLE GLOW PULSE
+   ========================================= */
+@keyframes subtleGlow {
+    0%, 100% {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(32, 201, 151, 0);
+    }
+    50% {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 25px 3px rgba(32, 201, 151, 0.15);
+    }
+}
+
+header .btn-pill-glass,
+#section-hero .btn-pill-glass {
+    animation: subtleGlow 3s ease-in-out infinite;
+}
+
+/* Don't animate when hovered - keep the hover state clean */
+header .btn-pill-glass:hover,
+#section-hero .btn-pill-glass:hover {
+    animation: none;
+}
+
+/* =========================================
+   PROJECT CARD DESCRIPTIONS
+   ========================================= */
+.post-desc {
+    font-size: 0.82rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin: 4px 0 8px !important;
+    padding: 0 12px !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.2px;
 }
