@@ -1815,7 +1815,10 @@
         de_countdown();
         dropdown('#item_category');
         image_preview();
-        $(".jarallax").jarallax();
+        // Only init jarallax parallax on desktop — too heavy for mobile scroll perf
+        if (window.innerWidth > 991) {
+            $(".jarallax").jarallax();
+        }
         $(function () {
             $('.lazy').lazy();
         });
@@ -2280,11 +2283,13 @@
         load_owl();
         filter_gallery();
         window.dispatchEvent(new Event('resize'));
-        skrollr.init();
-
-        var s = skrollr.init();
-        if (s.isMobile()) {
-            s.destroy();
+        // Only init skrollr on desktop (>1024px) — scroll-driven transforms cause jank on mobile
+        if (window.innerWidth > 1024) {
+            skrollr.init({
+                smoothScrolling: true,
+                smoothScrollingDuration: 300,
+                forceHeight: false
+            });
         }
 
         $('.grid').isotope({
