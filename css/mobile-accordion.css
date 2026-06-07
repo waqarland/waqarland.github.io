@@ -66,6 +66,13 @@
         border-color: var(--primary-color, #20C997);
     }
 
+    /* Remove the conflicting border-bottom from the company title inside the header */
+    .mob-acc-header .d_company {
+        border-bottom: none !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
     /* Collapsible body */
     .mob-acc-body {
         max-height: 0;
