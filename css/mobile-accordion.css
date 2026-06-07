@@ -1,0 +1,198 @@
+/* ============================================
+   MOBILE ACCORDION
+   Collapsible experience cards & skill lists
+   on mobile (≤991px). Desktop is unaffected.
+   ============================================ */
+
+@media (max-width: 991px) {
+
+    /* --- Experience Card Accordion --- */
+
+    /* The clickable header area */
+    .glass-card.mob-accordion {
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .glass-card.mob-accordion .mob-acc-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .glass-card.mob-accordion .mob-acc-header .mob-acc-meta {
+        flex: 1;
+        min-width: 0;
+    }
+
+    /* Collapse toggle icon */
+    .mob-acc-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        margin-top: 2px;
+        transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+        flex-shrink: 0;
+    }
+
+    .mob-acc-toggle::after {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid rgba(255, 255, 255, 0.7);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+        transform: rotate(45deg);
+        transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+        margin-top: -3px;
+    }
+
+    /* Expanded state */
+    .glass-card.mob-accordion.mob-acc-open .mob-acc-toggle {
+        background: rgba(32, 201, 151, 0.15);
+        border-color: rgba(32, 201, 151, 0.4);
+    }
+
+    .glass-card.mob-accordion.mob-acc-open .mob-acc-toggle::after {
+        transform: rotate(-135deg);
+        margin-top: 3px;
+        border-color: var(--primary-color, #20C997);
+    }
+
+    /* Collapsible body */
+    .mob-acc-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                    opacity 0.3s ease;
+        opacity: 0;
+    }
+
+    .mob-acc-open .mob-acc-body {
+        opacity: 1;
+    }
+
+    /* Active card glow */
+    .glass-card.mob-accordion.mob-acc-open {
+        border-color: rgba(32, 201, 151, 0.25);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37),
+                    0 0 20px rgba(32, 201, 151, 0.08);
+    }
+
+    /* Separator between header and body */
+    .mob-acc-body::before {
+        content: '';
+        display: block;
+        height: 1px;
+        background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1) 30%,
+            rgba(255, 255, 255, 0.1) 70%,
+            transparent);
+        margin: 12px 0 16px;
+    }
+
+    /* --- Skills Section Accordion --- */
+
+    .mob-skills-accordion {
+        cursor: pointer;
+    }
+
+    .mob-skills-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .mob-skills-header h3 {
+        margin-bottom: 0;
+    }
+
+    .mob-skills-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+        flex-shrink: 0;
+    }
+
+    .mob-skills-toggle::after {
+        content: '';
+        display: block;
+        width: 9px;
+        height: 9px;
+        border-right: 2px solid rgba(255, 255, 255, 0.7);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+        transform: rotate(45deg);
+        transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+        margin-top: -2px;
+    }
+
+    .mob-skills-open .mob-skills-toggle {
+        background: rgba(32, 201, 151, 0.15);
+        border-color: rgba(32, 201, 151, 0.4);
+    }
+
+    .mob-skills-open .mob-skills-toggle::after {
+        transform: rotate(-135deg);
+        margin-top: 2px;
+        border-color: var(--primary-color, #20C997);
+    }
+
+    .mob-skills-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                    opacity 0.3s ease;
+        opacity: 0;
+    }
+
+    .mob-skills-open .mob-skills-body {
+        opacity: 1;
+    }
+
+    /* Separator */
+    .mob-skills-body::before {
+        content: '';
+        display: block;
+        height: 1px;
+        background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1) 30%,
+            rgba(255, 255, 255, 0.1) 70%,
+            transparent);
+        margin: 8px 0 12px;
+    }
+
+    /* Fix glass-card height when collapsed */
+    .glass-card.mob-accordion {
+        height: auto !important;
+    }
+
+    /* Skills list layout inside accordion */
+    .mob-skills-body .row {
+        margin-top: 8px;
+    }
+}
+
+/* Ensure none of this shows on desktop */
+@media (min-width: 992px) {
+    .mob-acc-toggle,
+    .mob-skills-toggle {
+        display: none !important;
+    }
+}
