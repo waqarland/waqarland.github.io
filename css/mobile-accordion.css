@@ -187,12 +187,17 @@
     .mob-skills-body .row {
         margin-top: 8px;
     }
+    /* Hide the original headings inside the body on mobile, since we cloned them to the header */
+    .hide-on-mobile {
+        display: none !important;
+    }
 }
 
 /* Ensure none of this shows on desktop */
 @media (min-width: 992px) {
     .mob-acc-toggle,
-    .mob-skills-toggle {
+    .mob-skills-toggle,
+    .mob-only-header {
         display: none !important;
     }
 }
