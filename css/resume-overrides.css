@@ -193,23 +193,30 @@
    EXPERTISE SECTION SEPARATION
    ========================================= */
 #section-expertise {
-    /* Gradient Background as requested */
-    background: linear-gradient(180deg, #0c0c0c 0%, #161616 50%, #0c0c0c 100%);
+    /* Green gradient background matching the site theme */
+    background: linear-gradient(160deg,
+        rgba(0, 12, 6, 0.97) 0%,
+        rgba(0, 35, 18, 0.95) 30%,
+        rgba(0, 50, 25, 0.92) 50%,
+        rgba(0, 35, 18, 0.95) 70%,
+        rgba(0, 12, 6, 0.97) 100%) !important;
     padding: 90px 0;
     position: relative;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Subtle separator glow */
+/* Subtle green radial glow accent */
 #section-expertise::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 20%;
-    right: 20%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-    opacity: 0.2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 50%;
+    background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Fix for all section headings - remove unnecessary 60px left margin site-wide */
@@ -220,22 +227,56 @@ section h4 {
     margin-left: 0 !important;
 }
 
-/* Darken Background Image for Vintage/Darker Effect */
+/* Green-themed Background for Resume Section */
 #section-resume {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/background/mountain.jpg) !important;
-    background-blend-mode: overlay;
-    /* Optional: simpler dark overlay */
-    background-size: cover;
+    background-image: none !important;
+    background: linear-gradient(135deg,
+        rgba(0, 15, 8, 0.97) 0%,
+        rgba(0, 40, 20, 0.95) 25%,
+        rgba(0, 60, 30, 0.92) 50%,
+        rgba(0, 40, 20, 0.95) 75%,
+        rgba(0, 15, 8, 0.97) 100%) !important;
+    position: relative;
+}
+
+/* Subtle green radial glow accent */
+#section-resume::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 60%;
+    background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* =========================================
    SKILLS SECTION OVERRIDES
    ========================================= */
 #section-skills {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/background/skills_background.jpeg) !important;
-    background-size: cover !important;
-    background-position: center !important;
+    background: linear-gradient(145deg,
+        #080808 0%,
+        #101010 30%,
+        #141414 50%,
+        #101010 70%,
+        #080808 100%) !important;
+    padding: 90px 0;
+    position: relative;
     color: #ffffff !important;
+}
+
+/* Subtle accent glow */
+#section-skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.15), transparent);
 }
 
 /* FADE BOTTOM TRANSITION */
@@ -259,10 +300,26 @@ section h4 {
    EXPERIENCE/REVIEWS SECTION OVERRIDES
    ========================================= */
 #section-my-quote {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/background/Reviews\ background.jpg) !important;
-    background-size: cover !important;
-    background-position: center !important;
+    background: linear-gradient(170deg,
+        #0a0a0a 0%,
+        #111111 25%,
+        #161616 50%,
+        #111111 75%,
+        #0a0a0a 100%) !important;
+    padding: 90px 0;
+    position: relative;
     color: #ffffff !important;
+}
+
+/* Subtle accent glow */
+#section-my-quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.15), transparent);
 }
 
 /* =========================================
@@ -535,4 +592,12 @@ header .btn-pill-glass:hover,
     text-align: center !important;
     font-weight: 400 !important;
     letter-spacing: 0.2px;
+}
+
+/* =========================================
+   HEADER - CONSISTENT TOP PADDING
+   ========================================= */
+header.header-full.transparent {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
 }
