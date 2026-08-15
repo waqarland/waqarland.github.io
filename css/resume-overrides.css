@@ -2,6 +2,26 @@
    RESUME OVERRIDES - HIGH CONTRAST & BADGES
    ========================================= */
 
+/* Fix: base theme sets section headings to display:inline-block, which
+   lays them out on the same inline "line" as the kicker label above them
+   (e.g. "About Me") when the heading is short enough to fit alongside it,
+   causing the two to baseline-align and visually overlap. Forcing block
+   display keeps the kicker stacked above the heading regardless of length. */
+h2.custom-scale-in-mask,
+h3.custom-scale-in-mask {
+    display: block;
+}
+
+/* Fix: the base theme's .owl-prev/.owl-next arrows sit at a fixed
+   left:-80px/right:-80px offset outside the carousel, tuned for a
+   full-width layout. In the Projects section the carousel shares its row
+   with a text column, so that offset lands the arrows on top of the
+   heading text instead of empty space. Rather than keep fighting their
+   placement, drop them entirely and navigate via the dots only. */
+#carousel-blog-2-cols .owl-nav {
+    display: none;
+}
+
 /* 1. Modern Light Grey Background with Rounded Corners */
 .glass-card {
     background: rgba(0, 0, 0, 0.4) !important;
