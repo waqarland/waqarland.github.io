@@ -19706,8 +19706,9 @@ li.d_timeline-item {
 /* Projects Carousel Center Alignment */
 .bloglist .post-text {
     text-align: center !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    padding-bottom: 20px !important;
 }
 
 .bloglist .post-text h3 {
